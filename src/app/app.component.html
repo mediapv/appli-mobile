@@ -2,11 +2,29 @@
 <h2>APPLI-MOBILE</h2>
 <h3>Coordonnées</h3>
 <p>
+    @if (coordonnees) {
     latitude : {{ coordonnees.latitude }}
-    <br/>
+    <br />
     longitude : {{ coordonnees.longitude }}
+    }
 </p>
-    
+
 <div>
-    <button (click)="bouton()">Coordonnées</button>
+    <h4>GPS</h4>
+    <button (click)="afficherCoordonnees()">Coordonnées</button>
+</div>
+<div>
+    <h4>SMS</h4>
+    <label>Tel :</label>
+    <br/>
+    <input type="text" [(ngModel)]="tel" name="tel">
+    <br>
+    <label>Message :</label>
+    <br/>
+    <input type="text" [(ngModel)]="message" name="message">
+    <br>
+    <br>
+    @if(tel != undefined){
+    <button (click)="sendSms()">SMS</button>
+    }
 </div>
